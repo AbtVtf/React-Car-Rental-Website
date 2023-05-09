@@ -13,7 +13,7 @@ import "../styles/about.css";
 const About = () => {
   return (
     <Helmet title="About">
-      <CommonSection title="About Us" />
+      <CommonSection title="Despre Noi" />
       <AboutSection aboutClass="aboutPage" />
 
       <section className="about__page-section">
@@ -28,7 +28,7 @@ const About = () => {
             <Col lg="6" md="6" sm="12">
               <div className="about__page-content">
                 <h2 className="section__title">
-                  We Are Committed To Provide Safe Ride Solutions
+                  Ne angajăm să oferim soluții de transport sigure.
                 </h2>
 
                 <p className="section__description">
@@ -51,8 +51,8 @@ const About = () => {
                   </span>
 
                   <div>
-                    <h6 className="section__subtitle">Need Any Help?</h6>
-                    <h4>+00123456789</h4>
+                    <h6 className="section__subtitle">Ai nevoiede ajutor?</h6>
+                    <h4>+6666666666</h4>
                   </div>
                 </div>
               </div>
@@ -67,8 +67,8 @@ const About = () => {
         <Container>
           <Row>
             <Col lg="12" className="mb-5 text-center">
-              <h6 className="section__subtitle">Experts</h6>
-              <h2 className="section__title">Our Members</h2>
+              <h6 className="section__subtitle">Experti</h6>
+              <h2 className="section__title">Membrii nostri</h2>
             </Col>
             <OurMembers />
           </Row>

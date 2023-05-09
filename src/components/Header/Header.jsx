@@ -1,21 +1,21 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Mo, Modal } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
 import "../../styles/header.css";
 
 const navLinks = [
   {
     path: "/home",
-    display: "Home",
+    display: "Acasa",
   },
   {
     path: "/about",
-    display: "About",
+    display: "Despre Noi",
   },
   {
     path: "/cars",
-    display: "Cars",
+    display: "Masini",
   },
 
   {
@@ -29,133 +29,53 @@ const navLinks = [
 ];
 
 const Header = () => {
-  const menuRef = useRef(null);
-
-  const toggleMenu = () => menuRef.current.classList.toggle("menu__active");
-
+  const [modal, setModal] = useState(false);
+  const toggleMenu = () => setModal(!modal);
   return (
     <header className="header">
-      {/* ============ header top ============ */}
-      <div className="header__top">
-        <Container>
-          <Row>
-            <Col lg="6" md="6" sm="6">
-              <div className="header__top__left">
-                <span>Need Help?</span>
-                <span className="header__top__help">
-                  <i class="ri-phone-fill"></i> +1-202-555-0149
-                </span>
-              </div>
-            </Col>
-
-            <Col lg="6" md="6" sm="6">
-              <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
-                <Link to="#" className=" d-flex align-items-center gap-1">
-                  <i class="ri-login-circle-line"></i> Login
-                </Link>
-
-                <Link to="#" className=" d-flex align-items-center gap-1">
-                  <i class="ri-user-line"></i> Register
-                </Link>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-
-      {/* =============== header middle =========== */}
-      <div className="header__middle">
-        <Container>
-          <Row>
-            <Col lg="4" md="3" sm="4">
-              <div className="logo">
-                <h1>
-                  <Link to="/home" className=" d-flex align-items-center gap-2">
-                    <i class="ri-car-line"></i>
-                    <span>
-                      Rent Car <br /> Service
-                    </span>
-                  </Link>
-                </h1>
-              </div>
-            </Col>
-
-            <Col lg="3" md="3" sm="4">
-              <div className="header__location d-flex align-items-center gap-2">
-                <span>
-                  <i class="ri-earth-line"></i>
-                </span>
-                <div className="header__location-content">
-                  <h4>Bangladesh</h4>
-                  <h6>Sylhet City, Bangladesh</h6>
-                </div>
-              </div>
-            </Col>
-
-            <Col lg="3" md="3" sm="4">
-              <div className="header__location d-flex align-items-center gap-2">
-                <span>
-                  <i class="ri-time-line"></i>
-                </span>
-                <div className="header__location-content">
-                  <h4>Sunday to Friday</h4>
-                  <h6>10am - 7pm</h6>
-                </div>
-              </div>
-            </Col>
-
-            <Col
-              lg="2"
-              md="3"
-              sm="0"
-              className=" d-flex align-items-center justify-content-end "
-            >
-              <button className="header__btn btn ">
-                <Link to="/contact">
-                  <i class="ri-phone-line"></i> Request a call
-                </Link>
-              </button>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-
-      {/* ========== main navigation =========== */}
-
       <div className="main__navbar">
         <Container>
           <div className="navigation__wrapper d-flex align-items-center justify-content-between">
             <span className="mobile__menu">
               <i class="ri-menu-line" onClick={toggleMenu}></i>
             </span>
-
-            <div className="navigation" ref={menuRef} onClick={toggleMenu}>
-              <div className="menu">
-                {navLinks.map((item, index) => (
-                  <NavLink
-                    to={item.path}
-                    className={(navClass) =>
-                      navClass.isActive ? "nav__active nav__item" : "nav__item"
-                    }
-                    key={index}
-                  >
-                    {item.display}
-                  </NavLink>
-                ))}
-              </div>
-            </div>
-
             <div className="nav__right">
-              <div className="search__box">
-                <input type="text" placeholder="Search" />
-                <span>
-                  <i class="ri-search-line"></i>
-                </span>
+              <div className="navigation" onClick={toggleMenu}>
+                <div className="menu">
+                  {navLinks.map((item, index) => (
+                    <NavLink
+                      to={item.path}
+                      className={(navClass) =>
+                        navClass.isActive ? "nav__active nav__item" : "nav__item"
+                      }
+                      key={index}
+                    >
+                      {item.display}
+                    </NavLink>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </Container>
       </div>
+      <Modal isOpen={modal} toggle={toggleMenu} className="menu__modal">
+        <h1 style={{ fontWeight: "bold", alignSelf: "center", marginTop: "20px" }}>YGG AUTO</h1>
+        <div style={{ display: "flex", flexDirection: "column", gap: '30px', padding: "50px " }}>
+          {navLinks.map((item, index) => (
+            <NavLink
+              to={item.path}
+              className={(navClass) =>
+                navClass.isActive ? "nav__active nav__item__mobile" : "nav__item__mobile"
+              }
+              key={index}
+              onClick={toggleMenu}
+            >
+              <h2 style={{ fontWeight: "bold", borderBottom: "1px solid #000d6b" }}>{item.display}</h2>
+            </NavLink>
+          ))}
+        </div>
+      </Modal>
     </header>
   );
 };

@@ -20,45 +20,15 @@ const Home = () => {
       {/* ============= hero section =========== */}
       <section className="p-0 hero__slider-section">
         <HeroSlider />
-
-        <div className="hero__form">
-          <Container>
-            <Row className="form__row">
-              <Col lg="4" md="4">
-                <div className="find__cars-left">
-                  <h2>Find your best car here</h2>
-                </div>
-              </Col>
-
-              <Col lg="8" md="8" sm="12">
-                <FindCarForm />
-              </Col>
-            </Row>
-          </Container>
-        </div>
       </section>
-      {/* =========== about section ================ */}
-      <AboutSection />
-      {/* ========== services section ============ */}
-      <section>
-        <Container>
-          <Row>
-            <Col lg="12" className="mb-5 text-center">
-              <h6 className="section__subtitle">See our</h6>
-              <h2 className="section__title">Popular Services</h2>
-            </Col>
 
-            <ServicesList />
-          </Row>
-        </Container>
-      </section>
       {/* =========== car offer section ============= */}
       <section>
         <Container>
           <Row>
             <Col lg="12" className="text-center mb-5">
-              <h6 className="section__subtitle">Come with</h6>
-              <h2 className="section__title">Hot Offers</h2>
+              <h6 className="section__subtitle">Cele mai bune</h6>
+              <h2 className="section__title">Oferte</h2>
             </Col>
 
             {carData.slice(0, 6).map((item) => (
@@ -75,8 +45,8 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg="12" className="mb-4 text-center">
-              <h6 className="section__subtitle">Our clients says</h6>
-              <h2 className="section__title">Testimonials</h2>
+              <h6 className="section__subtitle">Ce spun clientii nostrii</h6>
+              <h2 className="section__title">Testimoniale</h2>
             </Col>
 
             <Testimonial />
@@ -89,8 +59,8 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg="12" className="mb-5 text-center">
-              <h6 className="section__subtitle">Explore our blogs</h6>
-              <h2 className="section__title">Latest Blogs</h2>
+              <h6 className="section__subtitle">Blogurile noastre</h6>
+              <h2 className="section__title">Recente</h2>
             </Col>
 
             <BlogList />

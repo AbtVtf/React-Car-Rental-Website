@@ -8,7 +8,7 @@ import carData from "../assets/data/carData";
 const CarListing = () => {
   return (
     <Helmet title="Cars">
-      <CommonSection title="Car Listing" />
+      <CommonSection title="Masini" />
 
       <section>
         <Container>
@@ -16,13 +16,13 @@ const CarListing = () => {
             <Col lg="12">
               <div className=" d-flex align-items-center gap-3 mb-5">
                 <span className=" d-flex align-items-center gap-2">
-                  <i class="ri-sort-asc"></i> Sort By
+                  <i class="ri-sort-asc"></i> Sorteaza dupa:
                 </span>
 
                 <select>
-                  <option>Select</option>
-                  <option value="low">Low to High</option>
-                  <option value="high">High to Low</option>
+                  <option>Selecteaza</option>
+                  <option value="low">Pret Cresc.</option>
+                  <option value="high">Pret Desc.</option>
                 </select>
               </div>
             </Col>
